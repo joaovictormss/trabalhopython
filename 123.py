@@ -1,16 +1,29 @@
 import tkinter
 import PyPDF2
+
+def Leitor(in_PdfFile):  
+    reader = PyPDF2.PdfReader(in_PdfFile) 
+    print(reader.pages[0].extract_text())
+
+
 def LerPDF():
-    print("")
+    Leitor(r"C:\Users\Aluno.ESTACIOACAD\Downloads\Trabalho\Trabalho\Lista de datas.pdf")
+
 def Exemplo():
     root = tkinter.Tk()
-    root.title("Titulo da janela")
+    root.title("Título da Janela")
     root.resizable(True, True)
+
     
-    test = tkinter.Button(root, text="Ler PDF")
-    test['command'] = LerPDF
-    test.pack()
+    entrada = tkinter.Entry(root, width=40)
+    entrada.pack(pady=10)
+
     
+    test = tkinter.Button(root, text="Ler PDF", command=LerPDF)
+    test.pack(pady=10)
+
     root.mainloop()
+
 Exemplo()
+
 
